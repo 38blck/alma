@@ -1,0 +1,178 @@
+
+▄████▄ ▄▄▄▄   ▄▄▄▄ ▄▄ ▄▄   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄   ▄▄
+██▄▄██ ██▄█▄ ██▀▀▀ ██▄██   ██▄██  ██   ██ ▄ ██
+██  ██ ██ ██ ▀████ ██ ██   ██▄█▀  ██    ▀█▀█▀ 
+----------------------------- Volovan De Jamon
+
+┌────────┐
+│ Índice │
+└────────┘
+
+- Introducción
+- Instalación minimalista
+- Instalación de entorno gráfico
+- Conexión a GitHub con SSH
+- Referencias
+
+┌──────────────┐
+│ Introducción │
+└──────────────┘
+
+(17 de Noviembre, 2026)
+
+Esta bitácora es para documentar el proceso de configuración de Arch, desde la instalación de lo paquetes base hasta la personalización de Qtile.
+
+Un gran amigo me regaló una laptop que tenía arrumbada, se me ocurrió que con la fluidez y libertad de Linux podría sacarle el máximo provecho a esa computadora viejita. Ya sabes, el típico proyecto de revivir una máquina modesta de hace una década y ser completamente funcional en la actualidad con tareas que no sean tan demandantes (al mismo tiempo, ser un resistente a la obsolescencia programada).
+
+Como me dijo mi abuelo alguna vez mientras se tomaba su cuarta caguama: La basura de un hombre, es el tesoro de otro.
+
+Especificaciones:
+- CPU AMD A9-9425, 2 núcleos a 3.1GHz.
+- GPU AMD Radeon R5 (Integrada).
+- RAM 1x4GB a 2400MHz.
+- HDD 1TB a 5400RPM.
+
+┌─────────────────────────┐
+│ Instalación minimalista │
+└─────────────────────────┘
+
+En una memoria USB monté el archivo ISO de Arch.
+
+Entré a la Bios, comprobé dos cosas, que estuviera el UEFI Boot activado y el Secure Boot desactivado. Guardé los cambios, conecté la memoria y reinicié la computadora.
+
+Inicié el Live-ISO desde el Boot Menu. Comprobé que si haya iniciado en modo UEFI y la arquitectura del CPU:
+	# ls /sys/firmware/efi/efivars
+	# cat /sys/firmware/efi/fw_platform_size
+
+Me conecté a internet usando el comando interactivo iwctl:
+	[iwd]# device list
+	[iwd]# station <device_name> get-networks
+	[iwd]# station <device_name> connect <network_ssid>
+	[iwd]# exit
+
+Comprobé la conexión a internet:
+	# ping -c 4 archlinux.org
+
+Sincronicé con mi zona horaria:
+	# timedatectl set-timezone America/Mexico_City
+	# timedatectl
+
+Particioné el disco con fdisk:
+	│ Device      │ Size    │ Type          │
+	├─────────────┼─────────┼───────────────┤
+	│ /dev/sd<xn> │ 1GB     │ EFI System    │
+	│ /dev/sd<xn> │ 4GB     │ Swap          │
+	│ /dev/sd<xn> │ Default │ Root (x86_64) │
+
+Formateé las particiones:
+	# mkfs.fat -F 32 /dev/sd<xn>
+	# mkswap /dev/sd<xn>
+	# mkfs.ext4 /dev/sd<xn>
+
+Monté las particiones:
+	# mount --mkdir /dev/sd<xn> /mnt/boot
+	# swapon /dev/sd<xn>
+	# mount /dev/sd<xn> /mnt
+
+Restauré mi configuración de los mirrors usando curl:
+	# curl -o /etc/pacman.d/mirrorlist https://raw.githubusercontent.com/volov4n/alma/main/arch/mirrorlist
+	# pacman -Sy
+
+Instalé los paquetes esenciales:
+	# pacstrap -K /mnt base base-devel linux linux-firmware nano
+
+Generé el archivo fstab:
+	# genfstab -U /mnt >> /mnt/etc/fstab
+
+Ingresé al sistema recién instalado:
+	# arch-chroot /mnt
+
+Ajusté la zona horaria:
+	# ln -sf /usr/share/zoneinfo/America/Mexico_City /etc/localtime
+	# hwclock --systohc
+
+Ajusté el idioma del sistema:
+	# nano /etc/locale.gen
+		Descomenté: en_US.UTF-8 UTF-8
+	# locale-gen
+	# nano /etc/locale.conf
+		Escribí: LANG=en_US.UTF-8
+
+Configuré la red:
+	# pacman -S networkmanager
+	# nano /etc/hostname
+		Escribí: <hostname>
+	# nano /etc/hosts
+		Escribí:
+			127.0.0.1	localhost
+			::1			localhost
+			127.0.1.1	<hostname>
+	# systemctl enable NetworkManager
+
+Agregué mi usuario:
+	# passwd
+	# useradd -m -G wheel <username>
+	# passwd <username>
+	# nano /etc/sudoers
+		Descomenté: %wheel ALL=(ALL:ALL) ALL
+
+Instalé grub:
+	# pacman -S amd-ucode grub efibootmgr
+	# mount --mkdir /dev/sd<xn> /boot/efi
+	# grub-install --target=x86_64-efi --bootloader-id=grub
+	# grub-mkconfig -o /boot/grub/grub.cfg
+
+Reinicié para iniciar en el nuevo sistema:
+	# exit
+	# umount -R /mnt
+	# reboot
+
+┌────────────────────────────────┐
+│ Instalación de entorno gráfico │
+└────────────────────────────────┘
+
+Inicié sesión y me conecté a internet:
+	$ nmcli device
+	$ nmcli device wifi list
+	$ nmcli device wifi connect <network_ssid> password <network_passwod> ifname <device_name>
+
+Comprobé la conexión a internet:
+	$ ping -c 4 archlinux.org
+
+Instalé los paquetes base:
+	$ sudo pacman -S xorg qtile alacritty firefox git neovim noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack-nerd dmenu
+
+Reinicié otra vez y ejecuté el entorno gráfico:
+	$ qtile start
+
+┌───────────────────────────┐
+│ Conexión a GitHub con SSH │
+└───────────────────────────┘
+
+Instalé el paquete:
+	$ sudo pacman -S openssh
+
+Generé una key en ~/.ssh:
+	$ ssh-keygen -t ed25519 -C <github_email>
+
+Inicié el ssh-agent:
+	$ eval "$(ssh-agent -s)"
+
+Agregué la key al ssh-agent:
+	$ ssh-add ~/.ssh/id_ed25519
+
+Creé una SSH Key en GitHub copiando el contenido del archivo ~/.ssh/id_ed25519.pub.
+
+Comprobé la conexión:
+	$ ssh -T git@github.com
+
+Configuré la identidad de git:
+	$ git config --global user.name <name>
+	$ git config --global user.email <github_email>
+
+┌─────────────┐
+│ Referencias │
+└─────────────┘
+
+https://wiki.archlinux.org/title/Installation_guide
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh
