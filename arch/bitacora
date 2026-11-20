@@ -75,7 +75,7 @@ Monté las particiones:
 	# mount /dev/sd<xn> /mnt
 
 Restauré mi configuración de los mirrors usando curl:
-	# curl -o /etc/pacman.d/mirrorlist https://raw.githubusercontent.com/volov4n/alma/main/arch/mirrorlist
+	# curl -o /etc/pacman.d/mirrorlist https://raw.githubusercontent.com/38blck/alma/main/arch/mirrorlist
 	# pacman -Sy
 
 Instalé los paquetes esenciales:
