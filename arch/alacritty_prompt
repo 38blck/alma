@@ -1,0 +1,19 @@
+custom_prompt() {
+	gen_additive() {
+		shuf --input-range 180-250 --head-count 1
+	}
+
+	local rdm_color="$(gen_additive);$(gen_additive);$(gen_additive)"
+
+	unset gen_additive
+
+	# Window title
+	PS1="\[\033]2;Alacritty | \u@\h \W\007\]"
+
+	# Prompt
+	PS1+="\[\e[38;2;0;0;0;48;2;${rdm_color}m\] \$ "
+	PS1+="\[\e[38;2;${rdm_color};49m\]\[\e[0m\] "
+}
+
+custom_prompt
+unset custom_prompt
