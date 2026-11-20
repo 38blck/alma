@@ -11,6 +11,7 @@
 - Introducción
 - Instalación minimalista
 - Instalación de entorno gráfico
+- Personalización
 - Conexión a GitHub con SSH
 - Referencias
 
@@ -144,6 +145,19 @@ Instalé los paquetes base:
 
 Reinicié otra vez y ejecuté el entorno gráfico:
 	$ qtile start
+
+┌─────────────────┐
+│ Personalización │
+└─────────────────┘
+
+No hice la gran cosa. En r/unixporn he visto arroces muy bonitos, obras de arte dignas de admirar, aunque quisiera hacer algo parecido no tengo el conocimiento ni las ganas de construir algo así. Por el momento me conformo con una estética apenas cambiada y con un par de shortcuts.
+
+Comandos para restaurar los dotfiles:
+	$ curl -o ~/.bashrc https://raw.githubusercontent.com/38blck/alma/main/arch/bashrc
+	$ curl --create-dirs -o ~/.Scripts/alacritty_prompt.sh https://raw.githubusercontent.com/38blck/alma/main/arch/scripts/alacritty_prompt
+	$ curl --create-dirs -o ~/.config/alacritty/alacritty.toml https://raw.githubusercontent.com/38blck/alma/main/arch/alacritty
+	$ curl --create-dirs -o ~/.config/qtile/config.py https://raw.githubusercontent.com/38blck/alma/main/arch/qtile
+	$ curl --create-dirs -o ~/.config/nvim/init.lua https://raw.githubusercontent.com/38blck/alma/main/arch/neovim
 
 ┌───────────────────────────┐
 │ Conexión a GitHub con SSH │
