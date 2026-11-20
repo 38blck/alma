@@ -20,5 +20,5 @@ cprj() {
 if [[ $TERM == "alacritty" ]]; then
 	PROMPT_COMMAND="source ~/.Scripts/alacritty_prompt.sh"
 else
-	PS1='\$ '
+	PS1="\W\$ "
 fi
