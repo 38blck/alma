@@ -8,16 +8,18 @@
 │ Índice │
 └────────┘
 
-- Introducción
-- Instalación minimalista
-- Instalación de entorno gráfico
-- Personalización
-- Conexión a GitHub con SSH
-- Referencias
+1. Introducción
+2. Instalación minimalista
+3. Instalación de entorno gráfico
+4. Configuración de audio
+5. Capturas de pantalla
+6. Personalización
+7. Conexión a GitHub con SSH
+8. Referencias
 
-┌──────────────┐
-│ Introducción │
-└──────────────┘
+┌────────────────┐
+1 │ Introducción │
+└────────────────┘
 
 (17 de Noviembre, 2026)
 
@@ -33,9 +35,9 @@ Especificaciones:
 - RAM 1x4GB a 2400MHz.
 - HDD 1TB a 5400RPM.
 
-┌─────────────────────────┐
-│ Instalación minimalista │
-└─────────────────────────┘
+┌───────────────────────────┐
+2 │ Instalación minimalista │
+└───────────────────────────┘
 
 En una memoria USB monté el archivo ISO de Arch.
 
@@ -128,9 +130,9 @@ Reinicié para iniciar en el nuevo sistema:
 	# umount -R /mnt
 	# reboot
 
-┌────────────────────────────────┐
-│ Instalación de entorno gráfico │
-└────────────────────────────────┘
+┌──────────────────────────────────┐
+3 │ Instalación de entorno gráfico │
+└──────────────────────────────────┘
 
 Inicié sesión y me conecté a internet:
 	$ nmcli device
@@ -143,23 +145,38 @@ Comprobé la conexión a internet:
 Instalé los paquetes base:
 	$ sudo pacman -S xorg qtile alacritty firefox git neovim noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-hack-nerd dmenu
 
+	Nota: En la selección de dependencias de Firefox, escoger lib32-pipewire-jack.
+
 Reinicié otra vez y ejecuté el entorno gráfico:
 	$ qtile start
 
-┌────────────────────────┐
-│ Configuración de audio │
-└────────────────────────┘
+┌──────────────────────────┐
+4 │ Configuración de audio │
+└──────────────────────────┘
 
 Instalé los paquetes necesarios:
 	$ sudo pacman -S pipewire pipewire-alsa pipewire-jack alsa-utils
 
-Estaba usando pulseaudio y fue un dolor de cabeza hacerlo funcionar con el widget Volumen, ahora simplemente funciona y los shortcuts también.
+Estaba usando pulseaudio y fue un dolor de cabeza hacerlo funcionar con el widget Volumen, ahora simplemente funciona y los shortcuts también. QUEDA PENDIENTE HACER FUNCIONAR EL LED DE MUTE.
 
-┌─────────────────┐
-│ Personalización │
-└─────────────────┘
+Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 6: "Personalización").
 
-No hice la gran cosa. En r/unixporn he visto arroces muy bonitos, obras de arte dignas de admirar, aunque quisiera hacer algo parecido no tengo el conocimiento ni las ganas de construir algo así. Por el momento me conformo con una estética apenas cambiada y con un par de shortcuts.
+┌────────────────────────┐
+5 │ Capturas de pantalla │
+└────────────────────────┘
+
+Para poder hacer capturas de pantallas tuve que instalar los paquetes necesarios:
+	$ sudo pacman -S grim slurp wl-clipboard
+
+QUEDA PENDIENTE CREAR UN SCRIPT O INSTALAR UN PAQUETE DONDE AL HACER UN SCREENSHOT SE MUESTRE UNA ANIMACIÓN DE 1 SEGUNDO COMO FEEDBACK VISUAL.
+
+Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 6: "Personalización").
+
+┌───────────────────┐
+6 │ Personalización │
+└───────────────────┘
+
+No hice la gran cosa. En r/unixporn he visto arroces muy bonitos, obras de arte dignas de admirar, aunque quisiera hacer algo parecido no tengo el conocimiento ni las ganas de construir algo así. Por el momento me conformo con una estética apenas cambiada y con algunos shortcuts.
 
 Comandos para restaurar los dotfiles:
 	Bash:
@@ -173,9 +190,9 @@ Comandos para restaurar los dotfiles:
 	Neovim:
 		$ curl --create-dirs -o ~/.config/nvim/init.lua https://raw.githubusercontent.com/38blck/alma/main/arch/init.lua
 
-┌───────────────────────────┐
-│ Conexión a GitHub con SSH │
-└───────────────────────────┘
+┌─────────────────────────────┐
+7 │ Conexión a GitHub con SHH │
+└─────────────────────────────┘
 
 Instalé el paquete:
 	$ sudo pacman -S openssh
@@ -198,9 +215,9 @@ Configuré la identidad de git:
 	$ git config --global user.name <name>
 	$ git config --global user.email <github_email>
 
-┌─────────────┐
-│ Referencias │
-└─────────────┘
+┌───────────────┐
+8 │ Referencias │
+└───────────────┘
 
 https://wiki.archlinux.org/title/Installation_guide
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh
