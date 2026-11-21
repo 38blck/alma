@@ -19,6 +19,4 @@ cprj() {
 # Window title and Prompt
 if [[ $TERM == "alacritty" ]]; then
 	PROMPT_COMMAND="source ~/.Scripts/alacritty_prompt.sh"
-else
-	PS1="\W\$ "
 fi
