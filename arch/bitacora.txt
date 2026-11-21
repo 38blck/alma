@@ -21,8 +21,6 @@
 1 │ Introducción │
 └────────────────┘
 
-(17 de Noviembre, 2026)
-
 Esta bitácora es para documentar el proceso de configuración de Arch, desde la instalación de lo paquetes base hasta la personalización de Qtile.
 
 Un gran amigo me regaló una laptop que tenía arrumbada, se me ocurrió que con la fluidez y libertad de Linux podría sacarle el máximo provecho a esa computadora viejita. Ya sabes, el típico proyecto de revivir una máquina modesta de hace una década y ser completamente funcional en la actualidad con tareas que no sean tan demandantes (al mismo tiempo, ser un resistente a la obsolescencia programada).
@@ -220,4 +218,5 @@ Configuré la identidad de git:
 └───────────────┘
 
 https://wiki.archlinux.org/title/Installation_guide
+https://docs.qtile.org/en/stable/manual/config/default.html
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh
