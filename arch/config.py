@@ -47,7 +47,12 @@ keys = [
     # Sound
 	Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
 	Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q sset Master 2%- unmute")),
-	Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q sset Master 2%+ unmute"))
+	Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q sset Master 2%+ unmute")),
+    # Screenshots
+    Key([], "Print", lazy.spawn("sh -c 'grim ~/Pictures/Screenshots/ss-$(date +%y%m%d%H%M%S).png'")),
+    Key(["Shift"], "Print", lazy.spawn("sh -c 'grim -g \"$(slurp)\" ~/Pictures/Screenshots/ss-$(date +%y%m%d%H%M%S).png'")),
+    Key(["control"], "Print", lazy.spawn("sh -c 'grim - | wl-copy -t image/png'")),
+    Key(["control", "Shift"], "Print", lazy.spawn("sh -c 'grim -g \"$(slurp)\" - | wl-copy -t image/png'"))
 ]
 
 # Add key bindings to switch VTs in Wayland.
