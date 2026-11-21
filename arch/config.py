@@ -43,7 +43,11 @@ keys = [
 	Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
 	Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
 	Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-	Key([mod], "r", lazy.spawn("dmenu_run -fn 'Hack Nerd Font Propo-10'"))
+	Key([mod], "r", lazy.spawn("dmenu_run -fn 'Hack Nerd Font Propo-10'")),
+    # Sound
+	Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+	Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q sset Master 2%- unmute")),
+	Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q sset Master 2%+ unmute"))
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -100,8 +104,9 @@ screens = [
 			[
 				widget.GroupBox(hide_unused=True, highlight_method="line"),
 				widget.WindowName(background="202020", foreground="ffffff"),
-				widget.Systray(),
+				#widget.Systray(),
                 widget.KeyboardLayout(configured_keyboards=['us altgr-intl']),
+                widget.Volume(background="ffffff", foreground="202020"),
                 widget.Battery(update_interval=2),
 				widget.Clock(background="c6e366", foreground="202020", format="%a %b/%d/%y %H:%M")
 			],
