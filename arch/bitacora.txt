@@ -166,6 +166,8 @@ Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de
 Para poder hacer capturas de pantallas tuve que instalar los paquetes necesarios:
 	$ sudo pacman -S grim slurp wl-clipboard
 
+Antes de hacer alguna screenshot es necesario crear el directorio ~/Pictures/Screenshots.
+
 QUEDA PENDIENTE CREAR UN SCRIPT O INSTALAR UN PAQUETE DONDE AL HACER UN SCREENSHOT SE MUESTRE UNA ANIMACIÓN DE 1 SEGUNDO COMO FEEDBACK VISUAL.
 
 Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 6: "Personalización").
