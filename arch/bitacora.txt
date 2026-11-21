@@ -146,6 +146,15 @@ Instalé los paquetes base:
 Reinicié otra vez y ejecuté el entorno gráfico:
 	$ qtile start
 
+┌────────────────────────┐
+│ Configuración de audio │
+└────────────────────────┘
+
+Instalé los paquetes necesarios:
+	$ sudo pacman -S pipewire pipewire-alsa pipewire-jack alsa-utils
+
+Estaba usando pulseaudio y fue un dolor de cabeza hacerlo funcionar con el widget Volumen, ahora simplemente funciona y los shortcuts también.
+
 ┌─────────────────┐
 │ Personalización │
 └─────────────────┘
