@@ -52,7 +52,10 @@ keys = [
     Key([], "Print", lazy.spawn("sh -c 'grim ~/Pictures/Screenshots/ss-$(date +%y%m%d%H%M%S).png'")),
     Key(["Shift"], "Print", lazy.spawn("sh -c 'grim -g \"$(slurp)\" ~/Pictures/Screenshots/ss-$(date +%y%m%d%H%M%S).png'")),
     Key(["control"], "Print", lazy.spawn("sh -c 'grim - | wl-copy -t image/png'")),
-    Key(["control", "Shift"], "Print", lazy.spawn("sh -c 'grim -g \"$(slurp)\" - | wl-copy -t image/png'"))
+    Key(["control", "Shift"], "Print", lazy.spawn("sh -c 'grim -g \"$(slurp)\" - | wl-copy -t image/png'")),
+    # Brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-"))
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -110,7 +113,8 @@ screens = [
 				widget.GroupBox(hide_unused=True, highlight_method="line"),
 				widget.WindowName(background="202020", foreground="ffffff"),
 				#widget.Systray(),
-                widget.KeyboardLayout(configured_keyboards=['us altgr-intl']),
+                widget.KeyboardLayout(background="ffffff", configured_keyboards=['us altgr-intl'], foreground="202020"),
+                widget.Backlight(),
                 widget.Volume(background="ffffff", foreground="202020"),
                 widget.Battery(update_interval=2),
 				widget.Clock(background="c6e366", foreground="202020", format="%a %b/%d/%y %H:%M")
