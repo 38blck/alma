@@ -54,8 +54,8 @@ keys = [
     Key(["control"], "Print", lazy.spawn("sh -c 'grim - | wl-copy -t image/png'")),
     Key(["control", "Shift"], "Print", lazy.spawn("sh -c 'grim -g \"$(slurp)\" - | wl-copy -t image/png'")),
     # Brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-"))
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -q set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -q set 10%-"))
 ]
 
 # Add key bindings to switch VTs in Wayland.
