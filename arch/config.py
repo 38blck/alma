@@ -113,9 +113,10 @@ screens = [
 				widget.GroupBox(hide_unused=True, highlight_method="line"),
 				widget.WindowName(background="202020", foreground="ffffff"),
 				#widget.Systray(),
-                widget.KeyboardLayout(background="ffffff", configured_keyboards=['us altgr-intl'], foreground="202020"),
-                widget.Backlight(),
+                widget.KeyboardLayout(configured_keyboards=['us altgr-intl']),
                 widget.Volume(background="ffffff", foreground="202020"),
+                widget.Wlan(ethernet_interface="enp2s0", interface="wlo1"),
+                widget.Backlight(background="ffffff", foreground="202020"),
                 widget.Battery(update_interval=2),
 				widget.Clock(background="c6e366", foreground="202020", format="%a %b/%d/%y %H:%M")
 			],
