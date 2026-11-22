@@ -4,6 +4,17 @@
 ██  ██ ██ ██ ▀████ ██ ██   ██▄█▀  ██    ▀█▀█▀ 
 ----------------------------- Volovan De Jamon
 
+┌───────┐
+│ To-Do │
+└───────┘
+
+* Reorganizar los widgets.
+* Documentar instalación de nodejs.
+* Investigar como funcionan los screenlockers y documentar configuración.
+* Hacer funcionar el mute led.
+* Hacer funcionar las media keys.
+* Crear una animación para cuando se haga un screenshot.
+
 ┌────────┐
 │ Índice │
 └────────┘
@@ -11,13 +22,9 @@
 1. Introducción
 2. Instalación minimalista
 3. Instalación de entorno gráfico
-4. Configuración de audio
-5. Capturas de pantalla
-6. Ajuste de brillo
-7. Interfaz de red
-8. Personalización
-9. Conexión a GitHub con SSH
-10. Referencias
+4. Configuración y personalización
+5. Conexión a GitHub con SSH
+6. Referencias
 
 ┌───┬──────────────┐
 │ 1 │ Introducción │
@@ -150,55 +157,18 @@ Instalé los paquetes base:
 Reinicié otra vez y ejecuté el entorno gráfico:
 	$ qtile start
 
-┌───┬────────────────────────┐
-│ 4 │ Configuración de audio │
-└───┴────────────────────────┘
+┌───┬─────────────────────────────────┐
+│ 4 │ Configuración y personalización │
+└───┴─────────────────────────────────┘
+
+Configuré algunos shortcuts que considero son funciones esenciales como manipular la salida de audio, tomar screenshots o ajustar el brillo de la pantalla. De igual forma, agregué widgets para mostrar el estado del sistema operativo.
 
 Instalé los paquetes necesarios:
-	$ sudo pacman -S pipewire pipewire-alsa pipewire-jack alsa-utils
+	$ sudo pacman -S pipewire pipewire-alsa pipewire-jack alsa-utils grim slurp wl-clipboard brightnessctl python-iwlib
 
-Estaba usando pulseaudio y fue un dolor de cabeza hacerlo funcionar con el widget Volumen, ahora simplemente funciona y los shortcuts también.
+Para hacer capturas de pantalla antes se tiene que crear el directorio ~/Pictures/Screenshots.
 
-QUEDA PENDIENTE HACER FUNCIONAR EL LED DE MUTE, TAMBIÉN HACER FUNCIONAR LAS MEDIA KEYS.
-
-Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 7: "Personalización").
-
-┌───┬──────────────────────┐
-│ 5 │ Capturas de pantalla │
-└───┴──────────────────────┘
-
-Para poder hacer capturas de pantallas tuve que instalar los paquetes necesarios:
-	$ sudo pacman -S grim slurp wl-clipboard
-
-Antes de hacer alguna screenshot es necesario crear el directorio ~/Pictures/Screenshots.
-
-QUEDA PENDIENTE CREAR UN SCRIPT O INSTALAR UN PAQUETE DONDE AL HACER UN SCREENSHOT SE MUESTRE UNA ANIMACIÓN DE 1 SEGUNDO COMO FEEDBACK VISUAL.
-
-Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 8: "Personalización").
-
-┌───┬──────────────────┐
-│ 6 │ Ajuste de brillo │
-└───┴──────────────────┘
-
-Solo se ocupa instalar un paquete:
-	$ sudo pacman -S brightnessctl
-
-Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 8: "Personalización").
-
-┌───┬─────────────────┐
-│ 7 │ Interfaz de red │
-└───┴─────────────────┘
-
-Para mostrar el método de conexión a internet (wifi o ethernet), antes se necesita instalar un paquete:
-	$ sudo pacman -S python-iwlib
-
-Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 8: "Personalización").
-
-┌───┬─────────────────┐
-│ 8 │ Personalización │
-└───┴─────────────────┘
-
-No hice la gran cosa. En r/unixporn he visto arroces muy bonitos, obras de arte dignas de admirar, aunque quisiera hacer algo parecido no tengo el conocimiento ni las ganas de construir algo así. Por el momento me conformo con una estética apenas cambiada y con algunos shortcuts.
+No hice la gran cosa. En r/unixporn he visto arroces muy bonitos, obras de arte dignas de admirar, aunque quisiera hacer algo parecido no tengo el conocimiento ni las ganas de construir algo así. Por el momento me conformo con una estética apenas cambiada.
 
 Comandos para restaurar los dotfiles:
 	Bash:
@@ -212,8 +182,10 @@ Comandos para restaurar los dotfiles:
 	Neovim:
 		$ curl --create-dirs -o ~/.config/nvim/init.lua https://raw.githubusercontent.com/38blck/alma/main/arch/init.lua
 
+Nota: Reinicié tantas veces el sistema que no sé hasta que punto sea un requisito.
+
 ┌───┬───────────────────────────┐
-│ 9 │ Conexión a GitHub con SSH │
+│ 5 │ Conexión a GitHub con SSH │
 └───┴───────────────────────────┘
 
 Instalé el paquete:
@@ -237,9 +209,9 @@ Configuré la identidad de git:
 	$ git config --global user.name <name>
 	$ git config --global user.email <github_email>
 
-┌────┬─────────────┐
-│ 10 │ Referencias │
-└────┴─────────────┘
+┌───┬─────────────┐
+│ 6 │ Referencias │
+└───┴─────────────┘
 
 https://wiki.archlinux.org/title/Installation_guide
 https://docs.qtile.org/en/stable/manual/config/default.html
