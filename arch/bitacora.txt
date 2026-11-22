@@ -14,9 +14,10 @@
 4. Configuración de audio
 5. Capturas de pantalla
 6. Ajuste de brillo
-7. Personalización
-8. Conexión a GitHub con SSH
-9. Referencias
+7. Interfaz de red
+8. Personalización
+9. Conexión a GitHub con SSH
+10. Referencias
 
 ┌───┬──────────────┐
 │ 1 │ Introducción │
@@ -156,7 +157,9 @@ Reinicié otra vez y ejecuté el entorno gráfico:
 Instalé los paquetes necesarios:
 	$ sudo pacman -S pipewire pipewire-alsa pipewire-jack alsa-utils
 
-Estaba usando pulseaudio y fue un dolor de cabeza hacerlo funcionar con el widget Volumen, ahora simplemente funciona y los shortcuts también. QUEDA PENDIENTE HACER FUNCIONAR EL LED DE MUTE.
+Estaba usando pulseaudio y fue un dolor de cabeza hacerlo funcionar con el widget Volumen, ahora simplemente funciona y los shortcuts también.
+
+QUEDA PENDIENTE HACER FUNCIONAR EL LED DE MUTE, TAMBIÉN HACER FUNCIONAR LAS MEDIA KEYS.
 
 Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 7: "Personalización").
 
@@ -171,7 +174,7 @@ Antes de hacer alguna screenshot es necesario crear el directorio ~/Pictures/Scr
 
 QUEDA PENDIENTE CREAR UN SCRIPT O INSTALAR UN PAQUETE DONDE AL HACER UN SCREENSHOT SE MUESTRE UNA ANIMACIÓN DE 1 SEGUNDO COMO FEEDBACK VISUAL.
 
-Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 7: "Personalización").
+Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 8: "Personalización").
 
 ┌───┬──────────────────┐
 │ 6 │ Ajuste de brillo │
@@ -180,10 +183,19 @@ Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de
 Solo se ocupa instalar un paquete:
 	$ sudo pacman -S brightnessctl
 
-Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 7: "Personalización").
+Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 8: "Personalización").
 
 ┌───┬─────────────────┐
-│ 7 │ Personalización │
+│ 7 │ Interfaz de red │
+└───┴─────────────────┘
+
+Para mostrar el método de conexión a internet (wifi o ethernet), antes se necesita instalar un paquete:
+	$ sudo pacman -S python-iwlib
+
+Nota: Los shortcuts funcionarán hasta restaurar el archivo de configuración de Qtile (ver apartado 8: "Personalización").
+
+┌───┬─────────────────┐
+│ 8 │ Personalización │
 └───┴─────────────────┘
 
 No hice la gran cosa. En r/unixporn he visto arroces muy bonitos, obras de arte dignas de admirar, aunque quisiera hacer algo parecido no tengo el conocimiento ni las ganas de construir algo así. Por el momento me conformo con una estética apenas cambiada y con algunos shortcuts.
@@ -201,7 +213,7 @@ Comandos para restaurar los dotfiles:
 		$ curl --create-dirs -o ~/.config/nvim/init.lua https://raw.githubusercontent.com/38blck/alma/main/arch/init.lua
 
 ┌───┬───────────────────────────┐
-│ 8 │ Conexión a GitHub con SSH │
+│ 9 │ Conexión a GitHub con SSH │
 └───┴───────────────────────────┘
 
 Instalé el paquete:
@@ -225,9 +237,9 @@ Configuré la identidad de git:
 	$ git config --global user.name <name>
 	$ git config --global user.email <github_email>
 
-┌───┬─────────────┐
-│ 9 │ Referencias │
-└───┴─────────────┘
+┌────┬─────────────┐
+│ 10 │ Referencias │
+└────┴─────────────┘
 
 https://wiki.archlinux.org/title/Installation_guide
 https://docs.qtile.org/en/stable/manual/config/default.html
