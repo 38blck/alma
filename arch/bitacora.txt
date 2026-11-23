@@ -1,19 +1,19 @@
 
 ▄████▄ ▄▄▄▄   ▄▄▄▄ ▄▄ ▄▄   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄   ▄▄
 ██▄▄██ ██▄█▄ ██▀▀▀ ██▄██   ██▄██  ██   ██ ▄ ██
-██  ██ ██ ██ ▀████ ██ ██   ██▄█▀  ██    ▀█▀█▀ 
+██  ██ ██ ██ ▀████ ██ ██   ██▄█▀  ██	▀█▀█▀ 
 ----------------------------- Volovan De Jamon
 
 ┌───────┐
 │ To-Do │
 └───────┘
 
-* Reorganizar los widgets.
 * Documentar instalación de nodejs.
 * Investigar como funcionan los screenlockers y documentar configuración.
 * Hacer funcionar el mute led.
 * Hacer funcionar las media keys.
 * Crear una animación para cuando se haga un screenshot.
+* Documentar bluetooth.
 
 ┌────────┐
 │ Índice │
@@ -68,10 +68,10 @@ Sincronicé con mi zona horaria:
 	# timedatectl
 
 Particioné el disco con fdisk:
-	│ Device      │ Size    │ Type          │
+	│ Device      │ Size	│ Type		│
 	├─────────────┼─────────┼───────────────┤
-	│ /dev/sd<xn> │ 1GB     │ EFI System    │
-	│ /dev/sd<xn> │ 4GB     │ Swap          │
+	│ /dev/sd<xn> │ 1GB	│ EFI System	│
+	│ /dev/sd<xn> │ 4GB	│ Swap		│
 	│ /dev/sd<xn> │ Default │ Root (x86_64) │
 
 Formateé las particiones:
