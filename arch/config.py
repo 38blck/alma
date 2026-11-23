@@ -106,8 +106,8 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-# Base color
-b_clr="202020"
+# Monochromatic colors
+m_clr=["202020", "fff8d8"]
 # Widget colors
 w_clr=["cbc028", "c3d812", "c0ee5b", "8fe34d", "78e66a", "40fe80", "00da84"]
 
@@ -116,27 +116,33 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    active="ffffff",
+                    active=m_clr[1],
+                    borderwidth=1,
                     hide_unused=True,
-                    highlight_color=[(b_clr + "40"), (w_clr[6] + "40")],
+                    highlight_color=[(m_clr[0] + "00"), (w_clr[6] + "80")],
                     highlight_method="line",
                     this_current_screen_border=w_clr[6],
                     this_screen_border=w_clr[6],
-                    inactive="bfbfbf"
+                    inactive=(m_clr[1] + "80")
                 ),
 
-                widget.WindowName(),
+                widget.TextBox(
+                    fmt="󰅂",
+                    foreground=(m_clr[1] + "80")
+                ),
+
+                widget.WindowName(foreground=m_clr[1]),
 
                 widget.KeyboardLayout(
                     background=w_clr[0],
                     configured_keyboards=['us altgr-intl'],
-                    display_map={"us altgr-intl":"us-ai"},
+                    display_map={"us altgr-intl":"usai"},
                     fmt=" {}",
-                    foreground=b_clr
+                    foreground=m_clr[0]
                 ),
 
                 widget.Sep(
-                    foreground=(b_clr + "00"),
+                    foreground=(m_clr[0] + "00"),
                     linewidth=4,
                     padding=0,
                     size_percent=100
@@ -145,11 +151,11 @@ screens = [
                 widget.Volume(
                     background=w_clr[1],
                     fmt=" {}",
-                    foreground=b_clr
+                    foreground=m_clr[0]
                 ),
 
                 widget.Sep(
-                    foreground=(b_clr + "00"),
+                    foreground=(m_clr[0] + "00"),
                     linewidth=4,
                     padding=0,
                     size_percent=100
@@ -159,11 +165,11 @@ screens = [
                 widget.TextBox(
                     background=w_clr[2],
                     fmt="BT",
-                    foreground=b_clr
+                    foreground=m_clr[0]
                 ),
 
                 widget.Sep(
-                    foreground=(b_clr + "00"),
+                    foreground=(m_clr[0] + "00"),
                     linewidth=4,
                     padding=0,
                     size_percent=100
@@ -172,15 +178,15 @@ screens = [
                 widget.Wlan(
                     background=w_clr[3],
                     ethernet_interface="enp2s0",
-                    ethernet_message_format="",
+                    #ethernet_message_format="",
                     format=" {quality}",
                     interface="wlo1",
-                    foreground=b_clr,
+                    foreground=m_clr[0],
                     update_interval=2
                 ),
 
                 widget.Sep(
-                    foreground=(b_clr + "00"),
+                    foreground=(m_clr[0] + "00"),
                     linewidth=4,
                     padding=0,
                     size_percent=100
@@ -189,11 +195,11 @@ screens = [
                 widget.Backlight(
                     background=w_clr[4],
                     fmt=" {}",
-                    foreground=b_clr
+                    foreground=m_clr[0]
                 ),
 
                 widget.Sep(
-                    foreground=(b_clr + "00"),
+                    foreground=(m_clr[0] + "00"),
                     linewidth=4,
                     padding=0,
                     size_percent=100
@@ -202,12 +208,12 @@ screens = [
                 widget.Battery(
                     background=w_clr[5],
                     fmt=" {}",
-                    foreground=b_clr,
+                    foreground=m_clr[0],
                     update_interval=2
                 ),
 
                 widget.Sep(
-                    foreground=(b_clr + "00"),
+                    foreground=(m_clr[0] + "00"),
                     linewidth=4,
                     padding=0,
                     size_percent=100
@@ -215,13 +221,13 @@ screens = [
 
                 widget.Clock(
                     background=w_clr[6],
-                    foreground=b_clr,
+                    foreground=m_clr[0],
                     #format="%a %b/%d/%y %H:%M"
                     format="%H:%M"
                 )
             ],
             24,
-            background=(b_clr + "bf")
+            background=(m_clr[0] + "bf")
         ),
         background="#000000",
         wallpaper="~/Pictures/Wallpapers/edu-lins-pIe9a3CWB4A-unsplash.jpg",
