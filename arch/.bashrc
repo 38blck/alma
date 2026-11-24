@@ -13,7 +13,7 @@ cdwn() {
 	cd ~/Downloads
 }
 cprj() {
-	cd ~/Documents/Projects
+	source ~/.Scripts/cprj.sh
 }
 
 # Window title and Prompt
