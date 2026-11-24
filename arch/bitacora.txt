@@ -174,6 +174,7 @@ Comandos para restaurar los dotfiles:
 	Bash:
 		$ curl -o ~/.bashrc https://raw.githubusercontent.com/38blck/alma/main/arch/.bashrc
 		$ curl --create-dirs -o ~/.Scripts/alacritty_prompt.sh https://raw.githubusercontent.com/38blck/alma/main/arch/scripts/alacritty_prompt.sh
+		$ curl --create-dirs -o ~/.Scripts/cprj.sh https://raw.githubusercontent.com/38blck/alma/main/arch/scripts/cprj.sh
 	Alacritty:
 		$ curl --create-dirs -o ~/.config/alacritty/alacritty.toml https://raw.githubusercontent.com/38blck/alma/main/arch/alacritty.toml
 	Qtile:
