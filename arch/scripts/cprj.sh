@@ -7,8 +7,11 @@ exec_cprj() {
 			local response
 			if [[ $dir_children_count -eq 1 ]]; then
 				local sel_first_dir_children="$(find "${directory}" -mindepth 1 -maxdepth 1 -type d | awk "NR==1" | sed "s/ \// /g")"
+				local target_dir="$(basename ${sel_first_dir_children})"
+				local prompt_blue=$'\e[34m'
+				local prompt_reset=$'\e[0m'
 				echo "Projects directory contains one subdirectory."
-				read -p "Move to \"$(basename "${sel_first_dir_children}")\"? [Y/n]: " response
+				read -p "Move to ${prompt_blue}${target_dir}${prompt_reset}? [Y/n]: " response
 				while true; do
 					if [[ $response == "Y" || $response == "y" || $response == "" ]]; then
 						cd "${sel_first_dir_children}"
@@ -21,17 +24,20 @@ exec_cprj() {
 					fi
 				done
 			else
-				echo "Projects directory contains the following subdirectories:"
 				local print_dir_children=""
+				local prompt_blue=$'\e[34m'
+				local prompt_reset=$'\e[0m'
 				check_dir_children() {
 					local iterator=1
 					while (( iterator < dir_children_count + 1 )); do
-						print_dir_children+="[${iterator}] $(basename "$(find "${directory}" -mindepth 1 -maxdepth 1 -type d | awk "NR==${iterator}")") "
+						local target_dir="$(basename "$(find "${directory}" -mindepth 1 -maxdepth 1 -type d | awk "NR==${iterator}")")"
+						print_dir_children+="[${iterator}] ${prompt_blue}${target_dir}${prompt_reset} "
 						((iterator++))
 					done
 				}
 				check_dir_children
 				unset check_dir_children
+				echo "Projects directory contains the following subdirectories:"
 				echo $print_dir_children
 				local response
 				read -p $'Move to a subdirectory? [\e[3mnum\e[23m/N]: ' response
