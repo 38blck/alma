@@ -3,7 +3,8 @@
 ### To-Do
 
 - Documentar la instalación de nodejs.
-- Investigar como funcionan los screen lockers.
+- Crear un script para mostrar la fecha completa al hacer clic en el widget Clock. Mostraría la fecha ($ date) y abajo el mes ($ cal). Se me ocurre que tendría que refrescarse cada par de segundos para comprobar la fecha en tiempo real (por el cambio a la media noche). También, que al presionar la flecha direccional izquierda/derecha se pase al anterior/siguiente mes, con "ctrl" hacer saltos de 6 meses y con "ctrl+shift" saltos de un año, al presionar "r" regresa al mes actual, al presionar "esc/c" cierra el programa.
+- Investigar como funcionan los screen lockers y configurar.
 - Hacer funcionar las mute keys.
 - Crear una animación para cuando se haga un screenshot.
 - Documentar la configuración del bluetooth.
