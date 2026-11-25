@@ -11,9 +11,9 @@
 ### Índice
 
 1. [Introducción](#introducción)
-2. [Instalación minimalista](instalación-minimalista)
-3. [Instalación de entorno gráfico](instalación-de-entorno-gráfico)
-4. [Configuración y personalización](configuración-y-personalización)
+2. [Instalación minimalista](#instalación-minimalista)
+3. [Instalación de entorno gráfico](#instalación-de-entorno-gráfico)
+4. [Configuración y personalización](#configuración-y-personalización)
 5. [Conexión a GitHub con SSH](#conexión-a-github-con-ssh)
 6. [Referencias](#referencias)
 
