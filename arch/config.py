@@ -98,7 +98,21 @@ for i in groups:
         ]
     )
 
-layouts = [layout.Columns(border_width=4, margin=8)]
+# Monochromatic colors
+m_clr=["202020", "fff8d8"]
+# Widget colors
+w_clr=["cbc028", "c3d812", "c0ee5b", "8fe34d", "78e66a", "40fe80", "00da84"]
+
+layouts = [
+    layout.Columns(
+        border_focus=w_clr[0],
+        border_focus_stack=w_clr[0],
+        border_normal=(w_clr[0] + "40"),
+        border_normal_stack=(w_clr[0] + "40"),
+        border_on_single=True,
+        margin=8
+    )
+]
 
 widget_defaults = dict(
     font="Hack Nerd Font Propo",
@@ -106,14 +120,9 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-# Monochromatic colors
-m_clr=["202020", "fff8d8"]
-# Widget colors
-w_clr=["cbc028", "c3d812", "c0ee5b", "8fe34d", "78e66a", "40fe80", "00da84"]
-
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 widget.GroupBox(
                     active=m_clr[1],
