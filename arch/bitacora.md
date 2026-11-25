@@ -1,9 +1,4 @@
-```text
-▄████▄ ▄▄▄▄   ▄▄▄▄ ▄▄ ▄▄   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄   ▄▄
-██▄▄██ ██▄█▄ ██▀▀▀ ██▄██   ██▄██  ██   ██ ▄ ██
-██  ██ ██ ██ ▀████ ██ ██   ██▄█▀  ██	▀█▀█▀ 
------------------------------ Volovan De Jamon
-```
+# Arch BTW
 
 ### To-Do
 
@@ -15,11 +10,11 @@
 
 ### Índice
 
-1. [Introducción](#introduccion)
-2. [Instalación minimalista](instalacion-minimalista)
-3. [Instalación de entorno gráfico](instalacion-de-entorno-grafico)
-4. [Configuración y personalización](configuracion-y-personalizacion)
-5. [Conexión a GitHub con SSH](#conexion-a-github-con-ssh)
+1. [Introducción](#introducción)
+2. [Instalación minimalista](instalación-minimalista)
+3. [Instalación de entorno gráfico](instalación-de-entorno-gráfico)
+4. [Configuración y personalización](configuración-y-personalización)
+5. [Conexión a GitHub con SSH](#conexión-a-github-con-ssh)
 6. [Referencias](#referencias)
 
 ## Introducción
@@ -282,6 +277,6 @@ $ git config --global user.email <github_email>
 
 ## Referencias
 
-ArchWiki. [Installation guide](https://wiki.archlinux.org/title/Installation_guide).
-[Qtile docs](https://docs.qtile.org/en/stable/).
-GitHub Docs. [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+- ArchWiki. [Installation guide](https://wiki.archlinux.org/title/Installation_guide).
+- [Qtile docs](https://docs.qtile.org/en/stable/).
+- GitHub Docs. [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
