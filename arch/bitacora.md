@@ -16,7 +16,8 @@
 3. [Instalación de entorno gráfico](#instalación-de-entorno-gráfico)
 4. [Configuración y personalización](#configuración-y-personalización)
 5. [Conexión a GitHub con SSH](#conexión-a-github-con-ssh)
-6. [Referencias](#referencias)
+6. [Nodejs](#nodejs)
+7. [Referencias](#referencias)
 
 ## Introducción
 
@@ -276,8 +277,44 @@ $ git config --global user.name <name>
 $ git config --global user.email <github_email>
 ```
 
+## Nodejs
+
+Ejecuté el script de instalación de `nvm` (Node Version Manager):
+
+```text
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash
+```
+
+Reabrí la shell para que el directorio ~/.nvm se cargara.
+
+Comprobé la instalación:
+
+```text
+$ nvm --version
+```
+
+Instalé nodejs:
+
+```text
+$ nvm install node
+```
+
+Comprobé las instalación de `node` (y `npm`):
+
+```text
+$ node --version && npm --version
+```
+
+Instalé algunos paquetes que suelo ocupar:
+
+```text
+$ npm install -g live-server
+$ npm install -g markserv
+```
+
 ## Referencias
 
 - ArchWiki. [Installation guide](https://wiki.archlinux.org/title/Installation_guide).
 - [Qtile docs](https://docs.qtile.org/en/stable/).
 - GitHub Docs. [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+- Node Version Manager. [GitHub repository](https://github.com/nvm-sh/nvm)
